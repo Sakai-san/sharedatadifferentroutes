@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { Suspense, FunctionComponent } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./Home";
+import Home, { IBook } from "./Home";
 import Detail from "./Detail";
 import PageNotFound from "./PageNotFound";
 import books from "./books.json";
@@ -11,18 +11,18 @@ export interface IWrapedPromise<T> {
   read: () => T;
 }
 
-export function fetchData() {
+export const fetchData = () => {
   const booksPromise = Promise.resolve(books);
   return wrapPromise(booksPromise);
-}
+};
 
 // Suspense integrations like Relay implement
 // a contract like this to integrate with React.
 // Real implementations can be significantly more complex.
 // Don't copy-paste this into your project!
-function wrapPromise(promise) {
+function wrapPromise(promise: Promise<Array<IBook>>) {
   let status = "pending";
-  let result;
+  let result: IBook[];
   let suspender = promise.then(
     (r) => {
       status = "success";
@@ -48,7 +48,7 @@ function wrapPromise(promise) {
 }
 
 const App: FunctionComponent = () => {
-  const wrapPromise: IWrapedPromise = fetchData();
+  const wrapPromise: IWrapedPromise<IBook[]> = fetchData();
   return (
     <Router>
       <div className="Content">

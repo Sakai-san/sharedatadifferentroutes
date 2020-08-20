@@ -1,12 +1,34 @@
 import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+import {
+  createStyles,
+  fade,
+  Theme,
+  withStyles,
+  makeStyles,
+} from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
 import { IBook } from "./Home";
 
 interface IBooksProps {
+  classes: {
+    row: string;
+    poster: string;
+  };
   books: IBook[];
 }
+
+const styles = (theme: Theme) =>
+  createStyles({
+    row: {
+      display: "flex",
+      flexWrap: "wrap",
+    },
+    poster: {
+      height: "180px",
+      width: "auto",
+    },
+  });
 
 const useStylesBootstrap = makeStyles((theme) => ({
   arrow: {
@@ -21,9 +43,9 @@ const BootstrapTooltip = (props: any) => (
   <Tooltip arrow classes={useStylesBootstrap()} {...props} />
 );
 
-const Books: FunctionComponent<IBooksProps> = ({ books }) => {
+const Books: FunctionComponent<IBooksProps> = ({ books, classes }) => {
   return (
-    <div>
+    <div className={classes.row}>
       {books.map((book, index) => {
         return (
           <Link
@@ -36,7 +58,13 @@ const Books: FunctionComponent<IBooksProps> = ({ books }) => {
             key={book?.asin || book?.isbn13 || book?.isbn10 || index}
           >
             <BootstrapTooltip title={book?.title || ""}>
-              {book?.poster && <img alt={book?.title} src={book.poster} />}
+              {book?.poster && (
+                <img
+                  className={classes.poster}
+                  alt={book?.title}
+                  src={book.poster}
+                />
+              )}
             </BootstrapTooltip>
           </Link>
         );
@@ -45,4 +73,4 @@ const Books: FunctionComponent<IBooksProps> = ({ books }) => {
   );
 };
 
-export default Books;
+export default withStyles(styles)(Books);

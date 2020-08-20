@@ -1,6 +1,12 @@
 // @ts-nocheck
 import React, { Suspense, FunctionComponent } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  createStyles,
+  fade,
+  Theme,
+  withStyles,
+} from "@material-ui/core/styles";
 import Home, { IBook } from "./Home";
 import Detail from "./Detail";
 import PageNotFound from "./PageNotFound";
@@ -47,11 +53,26 @@ function wrapPromise(promise: Promise<Array<IBook>>) {
   };
 }
 
-const App: FunctionComponent = () => {
+interface IAppProps {
+  classes: {
+    root: string;
+  };
+}
+
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      width: "90%",
+      margin: "0 auto",
+      marginTtop: "110px",
+    },
+  });
+
+const App: FunctionComponent<IAppProps> = ({ classes }) => {
   const wrapPromise: IWrapedPromise<IBook[]> = fetchData();
   return (
     <Router>
-      <div className="Content">
+      <div className={classes.root}>
         <Switch>
           <Route
             path="/"
@@ -77,4 +98,4 @@ const App: FunctionComponent = () => {
   );
 };
 
-export default App;
+export default withStyles(styles)(App);

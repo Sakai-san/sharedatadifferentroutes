@@ -16,7 +16,7 @@ const Home: FunctionComponent<IHomeProps> = ({ wrapPromise }) => {
     useDispatch(),
     actions.makeBooksFetch
   );
-  return <Books books={resolved} />;
+  return <Books books={resolved || []} />;
 };
 
 export default Home;

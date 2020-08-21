@@ -1,8 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Rating from "@material-ui/lab/Rating";
 import PageNotFound from "./PageNotFound";
+import actions from "./ducks/useBooks/actions";
 import { IWrapedPromise } from "./ducks/reduxStoreType";
+import useWrapPromise from "./useWrapPromise";
 import { IBook } from "./ducks/useBooks/types";
 
 interface IDetailProps {
@@ -10,10 +13,15 @@ interface IDetailProps {
 }
 
 const Detail: FunctionComponent<IDetailProps> = ({ wrapPromise }) => {
-  const books = wrapPromise.read();
   const { bookId } = useParams();
-  const book: IBook | undefined = books.find(
-    (book) => (book?.asin || book?.isbn13 || book?.isbn10) === bookId
+  const resolved = useWrapPromise(
+    wrapPromise,
+    useDispatch(),
+    actions.makeBooksFetch
+  );
+
+  const book: IBook | undefined = resolved.find(
+    (book: IBook) => (book?.asin || book?.isbn13 || book?.isbn10) === bookId
   );
 
   return book ? (

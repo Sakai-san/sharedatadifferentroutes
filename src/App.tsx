@@ -11,7 +11,7 @@ import Home from "./Home";
 import Detail from "./Detail";
 import PageNotFound from "./PageNotFound";
 import "./App.css";
-import { useBooks } from "./ducks";
+import { useBooks } from "./ducks/useBooks";
 
 interface IAppProps {
   classes: {
@@ -29,7 +29,6 @@ const styles = (theme: Theme) =>
   });
 
 const App: FunctionComponent<IAppProps> = ({ classes }) => {
-  //const wrapPromise: IWrapedPromise<IBook[]> = fetchData();
   const wrapPromise = useBooks();
 
   return (

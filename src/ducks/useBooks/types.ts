@@ -37,7 +37,7 @@ interface IActionFetch extends IAction {
 
 // TYPE GUARDS
 export const isFetchingAction = (action: IAction): action is IActionFetching =>
-  action.type === actionTypes.FETCHING_BOOKS;
+  action?.type === actionTypes.FETCHING_BOOKS;
 
 export const isFetchAction = (action: IAction): action is IActionFetch =>
-  action.type === actionTypes.FETCH_BOOKS;
+  action?.type === actionTypes.FETCH_BOOKS;

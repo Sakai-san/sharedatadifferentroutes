@@ -17,9 +17,17 @@ const dispatchPromise = (dispatch: Dispatch) => (
   dispatch(
     actions.makeBooksPromise(
       wrapPromise(
-        fetch(
-          "https://sakai-san.github.io/sharedatadifferentroutes/books.json"
-        ).then((r) => r.json())
+        new Promise((resolve) =>
+          setTimeout(
+            () =>
+              resolve(
+                fetch(
+                  "https://sakai-san.github.io/sharedatadifferentroutes/books.json"
+                ).then((r) => r.json())
+              ),
+            3000
+          )
+        )
       )
     )
   );

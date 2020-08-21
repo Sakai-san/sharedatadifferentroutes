@@ -1,26 +1,20 @@
 import React, { FunctionComponent } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import Rating from "@material-ui/lab/Rating";
 import PageNotFound from "./PageNotFound";
-import actions from "./ducks/useBooks/actions";
-import { IWrapedPromise } from "./ducks/reduxStoreType";
-import useWrapPromise from "./useWrapPromise";
 import { IBook } from "./ducks/useBooks/types";
+import { IReduxStore } from "./ducks/reduxStoreType";
 
-interface IDetailProps {
-  wrapPromise: IWrapedPromise<IBook[]>;
-}
-
-const Detail: FunctionComponent<IDetailProps> = ({ wrapPromise }) => {
+const Detail: FunctionComponent = () => {
   const { bookId } = useParams();
-  const resolved = useWrapPromise(
-    wrapPromise,
-    useDispatch(),
-    actions.makeBooksFetch
-  );
 
-  const book: IBook | undefined = resolved.find(
+  const wrapedPromise = useSelector(
+    (state: IReduxStore) => state.useBooks.wrapPromise
+  );
+  const resolved = wrapedPromise?.read?.();
+
+  const book: IBook | undefined = resolved?.find?.(
     (book: IBook) => (book?.asin || book?.isbn13 || book?.isbn10) === bookId
   );
 

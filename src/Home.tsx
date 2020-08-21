@@ -1,21 +1,14 @@
 import React, { FunctionComponent } from "react";
-import { useDispatch } from "react-redux";
-import useWrapPromise from "./useWrapPromise";
-import { IWrapedPromise } from "./ducks/reduxStoreType";
-import actions from "./ducks/useBooks/actions";
-import { IBook } from "./ducks/useBooks/types";
+import { useSelector } from "react-redux";
 import Books from "./Books";
+import { IReduxStore } from "./ducks/reduxStoreType";
 
-interface IHomeProps {
-  wrapPromise: IWrapedPromise<IBook[]>;
-}
-
-const Home: FunctionComponent<IHomeProps> = ({ wrapPromise }) => {
-  const resolved = useWrapPromise(
-    wrapPromise,
-    useDispatch(),
-    actions.makeBooksFetch
+const Home: FunctionComponent = () => {
+  const wrapedPromise = useSelector(
+    (state: IReduxStore) => state.useBooks.wrapPromise
   );
+  const resolved = wrapedPromise?.read?.();
+
   return <Books books={resolved || []} />;
 };
 

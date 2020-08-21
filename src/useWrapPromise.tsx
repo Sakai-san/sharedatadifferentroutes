@@ -5,7 +5,7 @@ const useWrapPromise = (
 ) => {
   const resolved = wrapedPromise?.read?.();
 
-  dispatch(actionCreator(resolved || []));
+  // dispatch(actionCreator(resolved || []));
   return resolved;
 };
 

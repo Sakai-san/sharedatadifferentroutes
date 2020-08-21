@@ -1,8 +1,9 @@
+// @ts-nocheck
 import { Dispatch } from "redux";
 import actions from "./actions";
-//import books from "../../../public/books.json";
+import { IBook } from "./types";
 
-const fetchMovies = (dispatch: Dispatch) => {
+const fetchBo = (dispatch: Dispatch) => {
   dispatch(actions.makeBooksFetching(true));
 
   Promise.resolve([]).then((response: any) =>
@@ -10,4 +11,18 @@ const fetchMovies = (dispatch: Dispatch) => {
   );
 };
 
-export default { fetchMovies };
+const dispatchPromise = (dispatch: Dispatch) => (
+  wrapPromise: (p: Promise<IBook[]>) => any
+) => {
+  dispatch(
+    actions.makeBooksPromise(
+      wrapPromise(
+        fetch(
+          "https://sakai-san.github.io/sharedatadifferentroutes/books.json"
+        ).then((r) => r.json())
+      )
+    )
+  );
+};
+
+export default { fetchBo, dispatchPromise };

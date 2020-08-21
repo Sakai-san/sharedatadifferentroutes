@@ -11,7 +11,9 @@ import Home from "./Home";
 import Detail from "./Detail";
 import PageNotFound from "./PageNotFound";
 import "./App.css";
-import { useBooks } from "./ducks/useBooks";
+import { useDispatch } from "react-redux";
+import { wrapPromise } from "./utils";
+import { useBooksOperations } from "./ducks/useBooks";
 
 interface IAppProps {
   classes: {
@@ -29,7 +31,9 @@ const styles = (theme: Theme) =>
   });
 
 const App: FunctionComponent<IAppProps> = ({ classes }) => {
-  const wrapPromise = useBooks();
+  const dispatch = useDispatch();
+
+  useBooksOperations.dispatchPromise(dispatch)(wrapPromise);
 
   return (
     <Router>
@@ -40,7 +44,7 @@ const App: FunctionComponent<IAppProps> = ({ classes }) => {
             exact
             render={() => (
               <Suspense fallback={<h1>Loading books...</h1>}>
-                <Home wrapPromise={wrapPromise} />
+                <Home />
               </Suspense>
             )}
           />
@@ -48,7 +52,7 @@ const App: FunctionComponent<IAppProps> = ({ classes }) => {
             path="/book/:bookId"
             render={() => (
               <Suspense fallback={<h1>Loading books...</h1>}>
-                <Detail wrapPromise={wrapPromise} />
+                <Detail />
               </Suspense>
             )}
           />

@@ -8,7 +8,7 @@ import {
   makeStyles,
 } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
-import { IBook } from "./Home";
+import { IBook } from "./ducks/useBooks/types";
 
 interface IBooksProps {
   classes: {

@@ -7,51 +7,11 @@ import {
   Theme,
   withStyles,
 } from "@material-ui/core/styles";
-import Home, { IBook } from "./Home";
+import Home from "./Home";
 import Detail from "./Detail";
 import PageNotFound from "./PageNotFound";
-import books from "./books.json";
 import "./App.css";
-
-export interface IWrapedPromise<T> {
-  read: () => T;
-}
-
-export const fetchData = () => {
-  const booksPromise = Promise.resolve(books);
-  return wrapPromise(booksPromise);
-};
-
-// Suspense integrations like Relay implement
-// a contract like this to integrate with React.
-// Real implementations can be significantly more complex.
-// Don't copy-paste this into your project!
-function wrapPromise(promise: Promise<Array<IBook>>) {
-  let status = "pending";
-  let result: IBook[];
-  let suspender = promise.then(
-    (r) => {
-      status = "success";
-      result = r;
-    },
-    (e) => {
-      status = "error";
-      result = e;
-    }
-  );
-
-  return {
-    read() {
-      if (status === "pending") {
-        throw suspender;
-      } else if (status === "error") {
-        throw result;
-      } else if (status === "success") {
-        return result;
-      }
-    },
-  };
-}
+import { useBooks } from "./ducks";
 
 interface IAppProps {
   classes: {
@@ -69,7 +29,9 @@ const styles = (theme: Theme) =>
   });
 
 const App: FunctionComponent<IAppProps> = ({ classes }) => {
-  const wrapPromise: IWrapedPromise<IBook[]> = fetchData();
+  //const wrapPromise: IWrapedPromise<IBook[]> = fetchData();
+  const wrapPromise = useBooks();
+
   return (
     <Router>
       <div className={classes.root}>

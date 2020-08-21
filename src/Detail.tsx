@@ -2,8 +2,8 @@ import React, { FunctionComponent } from "react";
 import { useParams } from "react-router-dom";
 import Rating from "@material-ui/lab/Rating";
 import PageNotFound from "./PageNotFound";
-import { IWrapedPromise } from "./App";
-import { IBook } from "./Home";
+import { IWrapedPromise } from "./ducks/reduxStoreType";
+import { IBook } from "./ducks/useBooks/types";
 
 interface IDetailProps {
   wrapPromise: IWrapedPromise<IBook[]>;

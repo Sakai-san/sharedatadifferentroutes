@@ -12,9 +12,9 @@ const Detail: FunctionComponent = () => {
   const wrapedPromise = useSelector(
     (state: IReduxStore) => state.books.wrapPromise
   );
-  const resolved = wrapedPromise?.read?.();
+  const books = wrapedPromise?.read?.();
 
-  const book: IBook | undefined = resolved?.find?.(
+  const book: IBook | undefined = books?.find?.(
     (book: IBook) => (book?.asin || book?.isbn13 || book?.isbn10) === bookId
   );
 

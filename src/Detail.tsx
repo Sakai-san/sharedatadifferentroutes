@@ -29,7 +29,6 @@ const styles = (theme: Theme) =>
     },
     pipe: {
       "&:not(:last-child):after": {
-        border: "3px solid green",
         content: "|",
         padding: "5px",
       },

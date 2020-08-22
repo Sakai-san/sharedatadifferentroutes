@@ -1,7 +1,9 @@
-// @ts-nocheck
 import { actionTypes, IBook } from "./types";
+import { IWrapedPromise } from "../reduxStoreType";
 
-const makeFetchSuspender = (wrapPromise) => ({
+const makeFetchSuspender = (
+  wrapPromise: (p: Promise<IBook>) => IWrapedPromise<IBook>
+) => ({
   type: actionTypes.FETCH_SUSPENDER,
   payload: wrapPromise(
     new Promise((resolve) =>

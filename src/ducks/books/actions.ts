@@ -14,7 +14,7 @@ const makeFetchSuspender = (
               "https://sakai-san.github.io/sharedatadifferentroutes/books.json"
             ).then((r) => r.json())
           ),
-        3000
+        0
       )
     )
   ),

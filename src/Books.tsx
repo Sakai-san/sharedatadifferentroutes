@@ -14,6 +14,7 @@ interface IBooksProps {
   classes: {
     row: string;
     poster: string;
+    book: string;
   };
   books: IBook[];
 }
@@ -27,6 +28,15 @@ const styles = (theme: Theme) =>
     poster: {
       height: "180px",
       width: "auto",
+    },
+    book: {
+      borderRadius: "0.1875rem",
+      display: "flex",
+      border: "3px solid transparent",
+      "&:hover": {
+        border: "2px solid #ff51a1",
+        padding: "1px",
+      },
     },
   });
 
@@ -49,7 +59,7 @@ const Books: FunctionComponent<IBooksProps> = ({ books, classes }) => {
       {books.map((book, index) => {
         return (
           <Link
-            className="Book-item"
+            className={classes.book}
             to={
               book?.asin || book?.isbn13 || book?.isbn10
                 ? `/book/${book?.asin || book?.isbn13 || book?.isbn10}`

@@ -1737,13 +1737,6 @@
     "@types/prop-types" "*"
     csstype "^3.0.2"
 
-"@types/redux-thunk@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@types/redux-thunk/-/redux-thunk-2.1.0.tgz#bc2b6e972961831afb82a9bf4f06726e351f9416"
-  integrity sha1-vCtulylhgxr7gqm/TwZybjUflBY=
-  dependencies:
-    redux-thunk "*"
-
 "@types/redux@^3.6.0":
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/@types/redux/-/redux-3.6.0.tgz#f1ebe1e5411518072e4fdfca5c76e16e74c1399a"
@@ -7364,11 +7357,6 @@ normalize-url@^3.0.0:
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
 
-normalizr@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/normalizr/-/normalizr-3.6.0.tgz#b8bbc4546ffe43c1c2200503041642915fcd3e1c"
-  integrity sha512-25cd8DiDu+pL46KIaxtVVvvEPjGacJgv0yUg950evr62dQ/ks2JO1kf7+Vi5/rMFjaSTSTls7aCnmRlUSljtiA==
-
 npm-run-path@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-2.0.2.tgz#35a9232dfa35d7067b4cb2ddf2357b1871536c5f"
@@ -9140,11 +9128,6 @@ redent@^3.0.0:
   dependencies:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
-
-redux-thunk@*, redux-thunk@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
-  integrity sha512-km6dclyFnmcvxhAcrQV2AkZmPQjzPDjgVlQtR0EQjxZPyJ0BnMf3in1ryuR8A2qU0HldVRfxYXbFSKlI3N7Slw==
 
 redux@*, redux@^4.0.0, redux@^4.0.5:
   version "4.0.5"

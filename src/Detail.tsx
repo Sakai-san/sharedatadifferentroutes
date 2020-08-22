@@ -3,10 +3,40 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Rating from "@material-ui/lab/Rating";
 import PageNotFound from "./PageNotFound";
+import { createStyles, Theme, withStyles } from "@material-ui/core/styles";
 import { IBook } from "./ducks/books/types";
 import { IReduxStore } from "./ducks/reduxStoreType";
 
-const Detail: FunctionComponent = () => {
+interface IDetailProps {
+  classes: {
+    root: string;
+    header: string;
+    pipe: string;
+  };
+}
+
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      marginTop: "20px",
+      display: "flex",
+      flexWrap: "wrap",
+    },
+    header: {
+      display: "flex",
+      alignItems: "flex-start",
+      justifyContent: "space-between",
+    },
+    pipe: {
+      "&:not(:last-child):after": {
+        border: "3px solid green",
+        content: "|",
+        padding: "5px",
+      },
+    },
+  });
+
+const Detail: FunctionComponent<IDetailProps> = ({ classes }) => {
   const { bookId } = useParams();
 
   const wrapedPromise = useSelector(
@@ -19,12 +49,12 @@ const Detail: FunctionComponent = () => {
   );
 
   return book ? (
-    <article className="Book">
+    <article className={classes.root}>
       <section>
         {book?.poster && <img alt={book?.title} src={book.poster} />}
       </section>
       <div>
-        <header>
+        <header className={classes.header}>
           <h1>{book.title}</h1>
           <h3>{book.subTitle}</h3>
           {book?.ranking !== undefined && (
@@ -39,12 +69,14 @@ const Detail: FunctionComponent = () => {
         </header>
         <section>
           {book?.publicationDate && (
-            <span className="Pipe">
+            <span className={classes.pipe}>
               {new Date(book.publicationDate)?.getFullYear?.()}
             </span>
           )}
-          {book?.length && <span className="Pipe">{book.length}</span>}
-          {book?.publisher && <span className="Pipe">{book.publisher}</span>}
+          {book?.length && <span className={classes.pipe}>{book.length}</span>}
+          {book?.publisher && (
+            <span className={classes.pipe}>{book.publisher}</span>
+          )}
         </section>
         {book?.overview && (
           <section>
@@ -59,4 +91,4 @@ const Detail: FunctionComponent = () => {
   );
 };
 
-export default Detail;
+export default withStyles(styles)(Detail);

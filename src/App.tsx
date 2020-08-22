@@ -1,5 +1,6 @@
 import React, { Suspense, FunctionComponent } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import {
   createStyles,
   fade,
@@ -9,8 +10,6 @@ import {
 import Home from "./Home";
 import Detail from "./Detail";
 import PageNotFound from "./PageNotFound";
-import "./App.css";
-import { useDispatch } from "react-redux";
 import { wrapPromise } from "./utils";
 import booksActions from "./ducks/books/actions";
 

@@ -25,8 +25,7 @@ const styles = (theme: Theme) =>
     root: {
       width: "90%",
       margin: "0 auto",
-      marginTtop: "110px",
-      backgroudColor: "green",
+      marginTop: "110px",
     },
   });
 

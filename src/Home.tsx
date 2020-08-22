@@ -5,8 +5,9 @@ import { IReduxStore } from "./ducks/reduxStoreType";
 
 const Home: FunctionComponent = () => {
   const wrapedPromise = useSelector(
-    (state: IReduxStore) => state.useBooks.wrapPromise
+    (state: IReduxStore) => state.books.wrapPromise
   );
+
   const resolved = wrapedPromise?.read?.();
 
   return <Books books={resolved || []} />;

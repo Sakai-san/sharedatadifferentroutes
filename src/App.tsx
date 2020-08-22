@@ -13,7 +13,7 @@ import PageNotFound from "./PageNotFound";
 import "./App.css";
 import { useDispatch } from "react-redux";
 import { wrapPromise } from "./utils";
-import { useBooksOperations } from "./ducks/useBooks";
+import booksActions from "./ducks/books/actions";
 
 interface IAppProps {
   classes: {
@@ -33,7 +33,7 @@ const styles = (theme: Theme) =>
 const App: FunctionComponent<IAppProps> = ({ classes }) => {
   const dispatch = useDispatch();
 
-  useBooksOperations.dispatchPromise(dispatch)(wrapPromise);
+  dispatch(booksActions.makeFetchSuspender(wrapPromise));
 
   return (
     <Router>

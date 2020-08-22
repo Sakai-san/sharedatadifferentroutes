@@ -3,14 +3,14 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Rating from "@material-ui/lab/Rating";
 import PageNotFound from "./PageNotFound";
-import { IBook } from "./ducks/useBooks/types";
+import { IBook } from "./ducks/books/types";
 import { IReduxStore } from "./ducks/reduxStoreType";
 
 const Detail: FunctionComponent = () => {
   const { bookId } = useParams();
 
   const wrapedPromise = useSelector(
-    (state: IReduxStore) => state.useBooks.wrapPromise
+    (state: IReduxStore) => state.books.wrapPromise
   );
   const resolved = wrapedPromise?.read?.();
 

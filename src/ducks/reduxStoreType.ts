@@ -1,7 +1,7 @@
-import { IAppStore } from "./useBooks/types";
+import { IAppStore } from "./books/types";
 
 export interface IReduxStore {
-  useBooks: IAppStore;
+  books: IAppStore;
 }
 
 export interface IWrapedPromise<T> {

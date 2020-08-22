@@ -51,7 +51,7 @@ const App: FunctionComponent<IAppProps> = ({ classes }) => {
           <Route
             path="/book/:bookId"
             render={() => (
-              <Suspense fallback={<h1>Loading books...</h1>}>
+              <Suspense fallback={<h1>Loading book...</h1>}>
                 <Detail />
               </Suspense>
             )}

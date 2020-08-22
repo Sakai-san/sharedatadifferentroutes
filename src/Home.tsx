@@ -8,9 +8,7 @@ const Home: FunctionComponent = () => {
     (state: IReduxStore) => state.books.wrapPromise
   );
 
-  const resolved = wrapedPromise?.read?.();
-
-  return <Books books={resolved || []} />;
+  return <Books books={wrapedPromise?.read?.() || []} />;
 };
 
 export default Home;

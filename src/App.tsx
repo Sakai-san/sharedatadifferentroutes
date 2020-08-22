@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { Suspense, FunctionComponent } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
@@ -27,6 +26,7 @@ const styles = (theme: Theme) =>
       width: "90%",
       margin: "0 auto",
       marginTtop: "110px",
+      backgroudColor: "green",
     },
   });
 

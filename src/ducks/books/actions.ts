@@ -2,7 +2,7 @@ import { actionTypes, IBook } from "./types";
 import { IWrapedPromise } from "../reduxStoreType";
 
 const makeFetchSuspender = (
-  wrapPromise: (p: Promise<IBook>) => IWrapedPromise<IBook>
+  wrapPromise: (p: Promise<any>) => IWrapedPromise<IBook>
 ) => ({
   type: actionTypes.FETCH_SUSPENDER,
   payload: wrapPromise(

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useRef, FormEvent } from "react";
+import React, { FunctionComponent } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
@@ -64,15 +64,7 @@ const SearchAppBarComponent: FunctionComponent<SearchAppBarProps> = ({
   );
   const books = wrapedPromise?.read?.();
 
-  const selectedBook = useRef<IBook | null>(null);
   const history = useHistory();
-
-  const onSubmitHandle = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (selectedBook?.current?.id) {
-      history.push(`/book/${selectedBook.current.id}`);
-    }
-  };
 
   return (
     <div className={classes.root}>
@@ -82,25 +74,25 @@ const SearchAppBarComponent: FunctionComponent<SearchAppBarProps> = ({
             <Link to="/">Home</Link>
           </Typography>
 
-          <form onSubmit={onSubmitHandle}>
-            <Autocomplete
-              id="combo-box-movies"
-              options={books}
-              getOptionLabel={(option: IBook) => option?.title || ""}
-              style={{ width: 300 }}
-              onChange={(e, val) => {
-                selectedBook.current = val;
-              }}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Search movie"
-                  variant="outlined"
-                  className={classes.textfield}
-                />
-              )}
-            />
-          </form>
+          <Autocomplete
+            id="combo-box-movies"
+            options={books}
+            getOptionLabel={(option: IBook) => option?.title || ""}
+            style={{ width: 300 }}
+            onChange={(e, val) => {
+              if (val?.id) {
+                history.push(`/book/${val.id}`);
+              }
+            }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Search movie"
+                variant="outlined"
+                className={classes.textfield}
+              />
+            )}
+          />
         </Toolbar>
       </AppBar>
     </div>

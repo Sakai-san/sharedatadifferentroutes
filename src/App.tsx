@@ -1,12 +1,7 @@
 import React, { Suspense, FunctionComponent } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {
-  createStyles,
-  fade,
-  Theme,
-  withStyles,
-} from "@material-ui/core/styles";
+import { createStyles, Theme, withStyles } from "@material-ui/core/styles";
 import Home from "./Home";
 import Detail from "./Detail";
 import PageNotFound from "./PageNotFound";

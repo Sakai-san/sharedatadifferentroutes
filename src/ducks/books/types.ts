@@ -3,6 +3,7 @@ export enum actionTypes {
 }
 
 export interface IBook {
+  id: string;
   ranking?: number;
   authors?: string[];
   length?: number;

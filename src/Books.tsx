@@ -62,12 +62,8 @@ const Books: FunctionComponent<IBooksProps> = ({ books, classes }) => {
         return (
           <Link
             className={classes.book}
-            to={
-              book?.asin || book?.isbn13 || book?.isbn10
-                ? `/book/${book?.asin || book?.isbn13 || book?.isbn10}`
-                : ""
-            }
-            key={book?.asin || book?.isbn13 || book?.isbn10 || index}
+            to={book?.id ? `/book/${book.id}` : ""}
+            key={book?.id || index}
           >
             <BootstrapTooltip title={book?.title || ""}>
               {book?.poster && (

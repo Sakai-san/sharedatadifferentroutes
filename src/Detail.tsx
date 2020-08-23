@@ -44,7 +44,7 @@ const Detail: FunctionComponent<IDetailProps> = ({ classes }) => {
   const books = wrapedPromise?.read?.();
 
   const book: IBook | undefined = books?.find?.(
-    (book: IBook) => (book?.asin || book?.isbn13 || book?.isbn10) === bookId
+    (book: IBook) => book?.id === bookId
   );
 
   return book ? (

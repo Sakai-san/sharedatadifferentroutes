@@ -5,6 +5,7 @@ import { createStyles, Theme, withStyles } from "@material-ui/core/styles";
 import Home from "./Home";
 import Detail from "./Detail";
 import PageNotFound from "./PageNotFound";
+import SearchAppBar from "./SearchAppBar";
 import { wrapPromise } from "./utils";
 import booksActions from "./ducks/books/actions";
 
@@ -31,6 +32,10 @@ const App: FunctionComponent<IAppProps> = ({ classes }) => {
   return (
     <Router>
       <div className={classes.root}>
+        <Suspense fallback={""}>
+          <SearchAppBar />
+        </Suspense>
+
         <Switch>
           <Route
             path="/"

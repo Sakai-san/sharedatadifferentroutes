@@ -64,13 +64,13 @@ const SearchAppBarComponent: FunctionComponent<SearchAppBarProps> = ({
   );
   const books = wrapedPromise?.read?.();
 
-  const selectedMovie = useRef<IBook | null>(null);
+  const selectedBook = useRef<IBook | null>(null);
   const history = useHistory();
 
   const onSubmitHandle = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (selectedMovie?.current?.id) {
-      history.push(`/movie/${selectedMovie.current.id}`);
+    if (selectedBook?.current?.id) {
+      history.push(`/book/${selectedBook.current.id}`);
     }
   };
 
@@ -89,7 +89,7 @@ const SearchAppBarComponent: FunctionComponent<SearchAppBarProps> = ({
               getOptionLabel={(option: IBook) => option?.title || ""}
               style={{ width: 300 }}
               onChange={(e, val) => {
-                selectedMovie.current = val;
+                selectedBook.current = val;
               }}
               renderInput={(params) => (
                 <TextField

@@ -1,5 +1,6 @@
 export enum actionTypes {
-  FETCH_SUSPENDER = "@BOOKS/fetchSuspender",
+  FETCH_BOOKS = "@BOOKS/fetch",
+  FETCH_BOOKS_STATUS = "@BOOKS/fetchStatus",
 }
 
 export interface IBook {
@@ -26,12 +27,10 @@ interface IAction {
   type: actionTypes;
 }
 
-interface IActionFetchSuspender extends IAction {
+interface IActionFetch extends IAction {
   payload: any;
 }
 
 // TYPE GUARDS
-export const isFetchSuspenderAction = (
-  action: IAction
-): action is IActionFetchSuspender =>
-  action?.type === actionTypes.FETCH_SUSPENDER;
+export const isFetchAction = (action: IAction): action is IActionFetch =>
+  action?.type === actionTypes.FETCH_BOOKS;

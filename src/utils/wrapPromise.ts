@@ -19,10 +19,14 @@ const wrapPromise = <T>(promise: Promise<T>) => {
   return {
     read() {
       if (status === "pending") {
+        console.log("pending", suspender);
         throw suspender;
       } else if (status === "error") {
+        console.log("error", result);
         throw result;
       } else if (status === "success") {
+        console.log("success", result);
+
         return result;
       }
     },

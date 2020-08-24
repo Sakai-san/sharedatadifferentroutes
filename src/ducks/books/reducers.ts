@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { IAppStore, isFetchSuspenderAction } from "./types";
+import { IAppStore, isFetchAction } from "./types";
 import actions from "./actions";
 
 const reducer: Reducer<
@@ -11,7 +11,7 @@ const reducer: Reducer<
   },
   action
 ) => {
-  if (isFetchSuspenderAction(action)) {
+  if (isFetchAction(action)) {
     return {
       ...state,
       wrapPromise: action.payload,

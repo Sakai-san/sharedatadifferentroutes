@@ -4,7 +4,7 @@ import { IWrapedPromise } from "../reduxStoreType";
 const makeFetchSuspender = (
   wrapPromise: (p: Promise<any>) => IWrapedPromise<IBook>
 ) => ({
-  type: actionTypes.FETCH_SUSPENDER,
+  type: actionTypes.FETCH_BOOKS,
   payload: wrapPromise(
     new Promise((resolve) =>
       setTimeout(

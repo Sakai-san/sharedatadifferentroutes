@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import useSuspender from "./Hooks/useSuspender";
 import { IBook } from "./ducks/books/types";
 import { IReduxStore } from "./ducks/reduxStoreType";
 
@@ -59,11 +60,8 @@ interface SearchAppBarProps {
 const SearchAppBarComponent: FunctionComponent<SearchAppBarProps> = ({
   classes,
 }) => {
-  const wrapedPromise = useSelector(
-    (state: IReduxStore) => state.books.wrapPromise
-  );
-  const books = wrapedPromise?.read?.();
-
+  const wrapPromise = useSuspender();
+  const books = wrapPromise.read() || [];
   const history = useHistory();
 
   return (

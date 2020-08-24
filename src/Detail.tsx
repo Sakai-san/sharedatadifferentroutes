@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Rating from "@material-ui/lab/Rating";
 import PageNotFound from "./PageNotFound";
 import { createStyles, Theme, withStyles } from "@material-ui/core/styles";
+import useSuspender from "./Hooks/useSuspender";
 import { IBook } from "./ducks/books/types";
 import { IReduxStore } from "./ducks/reduxStoreType";
 
@@ -38,10 +38,8 @@ const styles = (theme: Theme) =>
 const Detail: FunctionComponent<IDetailProps> = ({ classes }) => {
   const { bookId } = useParams();
 
-  const wrapedPromise = useSelector(
-    (state: IReduxStore) => state.books.wrapPromise
-  );
-  const books = wrapedPromise?.read?.();
+  const wrapPromise = useSuspender();
+  const books = wrapPromise.read() || [];
 
   const book: IBook | undefined = books?.find?.(
     (book: IBook) => book?.id === bookId

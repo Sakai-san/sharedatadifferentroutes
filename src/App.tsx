@@ -1,4 +1,4 @@
-import React, { Suspense, FunctionComponent } from "react";
+import React, { Suspense, FunctionComponent, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { createStyles, Theme, withStyles } from "@material-ui/core/styles";
@@ -6,8 +6,7 @@ import Home from "./Home";
 import Detail from "./Detail";
 import PageNotFound from "./PageNotFound";
 import SearchAppBar from "./SearchAppBar";
-import { wrapPromise } from "./utils";
-import booksActions from "./ducks/books/actions";
+import { booksOperations } from "./ducks/books";
 
 interface IAppProps {
   classes: {
@@ -26,8 +25,10 @@ const styles = (theme: Theme) =>
 
 const App: FunctionComponent<IAppProps> = ({ classes }) => {
   const dispatch = useDispatch();
-
-  dispatch(booksActions.makeFetchSuspender(wrapPromise));
+  useEffect(() => {
+    dispatch(booksOperations.fetchBooks);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Router>

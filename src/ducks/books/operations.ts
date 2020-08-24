@@ -7,19 +7,12 @@ const fetchBooks = (dispatch: Dispatch) => {
   let result: any;
 
   let suspender = fetch(
-    "https://sakai-san.github.io/sharedatadifferentroutes/books.json",
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      mode: "no-cors",
-    }
+    "https://sakai-san.github.io/sharedatadifferentroutes/books.json"
   ).then(
     (r) => {
-      console.log("response", r);
       status = "success";
       result = r;
-      dispatch(actions.makeBooksFetch(status, suspender, result));
+      dispatch(actions.makeBooksFetch(status, suspender, r.json()));
     },
     (e) => {
       status = "error";

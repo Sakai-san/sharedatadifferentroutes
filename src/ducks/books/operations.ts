@@ -1,7 +1,6 @@
 import { Dispatch } from "redux";
 import actions from "./actions";
 import axios from "axios";
-import b from "./b.json";
 
 const fetchBooks = (dispatch: Dispatch) => {
   let status = "pending";
@@ -11,7 +10,7 @@ const fetchBooks = (dispatch: Dispatch) => {
     .get("https://sakai-san.github.io/sharedatadifferentroutes/books.json")
     .then((r) => {
       status = "success";
-      result = r;
+      result = r?.data || [];
       dispatch(actions.makeBooksFetch(status, suspender, result));
     })
     .catch((e) => {

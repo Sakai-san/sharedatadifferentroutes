@@ -12,6 +12,7 @@ const fetchBooks = (dispatch: Dispatch) => {
       headers: {
         "Content-Type": "application/json",
       },
+      mode: "no-cors",
     }
   ).then(
     (r) => {

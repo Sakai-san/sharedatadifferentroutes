@@ -9,20 +9,19 @@ const fetchBooks = (dispatch: Dispatch) => {
   let suspender = fetch(
     "https://sakai-san.github.io/sharedatadifferentroutes/books.json"
   )
+    .then((r) => r.json)
     .then(
       (r) => {
         status = "success";
         result = r;
+        dispatch(actions.makeBooksFetch(status, suspender, result));
       },
       (e) => {
         status = "error";
         result = e;
         dispatch(actions.makeBooksFetch(status, suspender, result));
       }
-    )
-    .then((r: any) => {
-      dispatch(actions.makeBooksFetch(status, suspender, r.json()));
-    });
+    );
 
   dispatch(actions.makeBooksFetch(status, suspender, result));
 };

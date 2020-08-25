@@ -11,15 +11,17 @@ const fetchBooks = (dispatch: Dispatch) => {
     .then((r) => {
       status = "success";
       result = r?.data || [];
+      // secondly dispatch resolved related info
       dispatch(actions.makeBooksFetch(status, suspender, result));
     })
     .catch((e) => {
       status = "error";
       result = e;
+      // secondly dispatch info in case of failure
       dispatch(actions.makeBooksFetch(status, suspender, result));
     });
 
-  // dispatch pending status first
+  // fist dispatch pending status
   dispatch(actions.makeBooksFetch(status, suspender, result));
 };
 

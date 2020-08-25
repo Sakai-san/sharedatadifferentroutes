@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Reducer } from "redux";
 import { IAppStore, isFetchAction, IBook } from "./types";
 import actions from "./actions";

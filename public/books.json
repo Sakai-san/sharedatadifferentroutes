@@ -71,5 +71,17 @@
     "title": "Moon Tiger",
     "asin": "B005FFPW76",
     "poster": "https://m.media-amazon.com/images/I/51Sclf-mlNL._SY346_.jpg"
+  },
+  {
+    "id": "b07z3nfq-95c7-4075-a093-44b7c67a2c62",
+    "ranking": 4.4,
+    "authors": ["Brad Parks"],
+    "length": 397,
+    "publisher": "Thomas & Mercer",
+    "publicationDate": "2020-09-01",
+    "title": "Interference",
+    "asin": "B07Z3NFQPD",
+    "overview": "Quantum physicist Matt Bronik is suffering from strange, violent seizures that medical science seems powerless to explain—much to the consternation of his wife, Brigid.\n\nMatt doesn’t think these fits could be related to his research, which he has always described as benign and esoteric. That, it turns out, is not quite true: Matt has been prodding the mysteries of the quantum universe, with terrible repercussions for his health. And perhaps even for humanity as a whole.",
+    "poster": "https://m.media-amazon.com/images/I/51l3ZF5AxoL._SY346_.jpg"
   }
 ]

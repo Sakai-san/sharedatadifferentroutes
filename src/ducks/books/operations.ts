@@ -19,6 +19,7 @@ const fetchBooks = (dispatch: Dispatch) => {
       dispatch(actions.makeBooksFetch(status, suspender, result));
     });
 
+  // dispatch pending status first
   dispatch(actions.makeBooksFetch(status, suspender, result));
 };
 

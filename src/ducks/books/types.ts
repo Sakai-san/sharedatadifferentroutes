@@ -7,11 +7,11 @@ export interface IBook {
   ranking?: number;
   authors?: string[];
   length?: number;
-  publisher: string;
-  publicationDate: string;
-  asin: string;
-  isbn10: string;
-  isbn13: string;
+  publisher?: string;
+  publicationDate?: string;
+  asin?: string;
+  isbn10?: string;
+  isbn13?: string;
   title?: string;
   subTitle?: string;
   poster?: string;

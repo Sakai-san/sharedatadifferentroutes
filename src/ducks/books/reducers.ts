@@ -1,6 +1,6 @@
 import { Reducer } from "redux";
-import { IAppStore, isFetchAction, IBook } from "./types";
 import actions from "./actions";
+import { IAppStore, isFetchAction } from "./types";
 
 const reducer: Reducer<IAppStore, ReturnType<typeof actions.makeBooksFetch>> = (
   state = {

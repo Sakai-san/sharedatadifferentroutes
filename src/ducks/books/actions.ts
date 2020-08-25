@@ -1,6 +1,10 @@
 import { actionTypes, IBook } from "./types";
 
-const makeBooksFetch = (status: string, promise: any, result: any) => ({
+const makeBooksFetch = (
+  status: string,
+  promise: Promise<any>,
+  result: IBook[] | null
+) => ({
   type: actionTypes.FETCH_BOOKS_FETCH,
   payload: {
     status,

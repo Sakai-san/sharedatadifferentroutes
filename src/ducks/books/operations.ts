@@ -4,7 +4,7 @@ import actions from "./actions";
 
 const fetchBooks = (dispatch: Dispatch) => {
   let status = "pending";
-  let result: any;
+  let result = null;
 
   let suspender = axios
     .get("https://sakai-san.github.io/sharedatadifferentroutes/books.json")

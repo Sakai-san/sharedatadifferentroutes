@@ -20,7 +20,7 @@ export interface IBook {
 
 export interface IAppStore {
   status: string | null;
-  promise: Promise<IBook[]> | null;
+  promise: Promise<any> | null;
   result: IBook[] | null;
 }
 
@@ -31,8 +31,8 @@ interface IAction {
 interface IActionFetch extends IAction {
   payload: {
     status: string;
-    promise: Promise<IBook[]>;
-    result: IBook[];
+    promise: Promise<any>;
+    result: IBook[] | null;
   };
 }
 

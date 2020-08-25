@@ -14,8 +14,8 @@ export interface IBook {
   isbn13?: string;
   title?: string;
   subTitle?: string;
-  poster?: string;
   overview?: string;
+  poster?: string;
 }
 
 export interface IAppStore {

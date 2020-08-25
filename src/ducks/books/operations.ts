@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
-import actions from "./actions";
 import axios from "axios";
+import actions from "./actions";
 
 const fetchBooks = (dispatch: Dispatch) => {
   let status = "pending";

@@ -60,5 +60,16 @@
     "title": "Sweet Sorrow",
     "asin": "B07T4JJFRB",
     "poster": "https://m.media-amazon.com/images/I/41tkojzdXuL.jpg"
+  },
+  {
+    "id": "b005ffpw-95c7-4075-a093-44b7c67a2c62",
+    "ranking": 4.1,
+    "authors": ["Penelope Lively"],
+    "length": 226,
+    "publisher": "Grove Press",
+    "publicationDate": "December 1, 2007",
+    "title": "Moon Tiger",
+    "asin": "B005FFPW76",
+    "poster": "https://m.media-amazon.com/images/I/51Sclf-mlNL._SY346_.jpg"
   }
 ]

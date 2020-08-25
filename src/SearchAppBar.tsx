@@ -73,7 +73,7 @@ const SearchAppBarComponent: FunctionComponent<SearchAppBarProps> = ({
           </Typography>
 
           <Autocomplete
-            id="combo-box-movies"
+            id="combo-box-books"
             options={books}
             getOptionLabel={(option: IBook) => option?.title || ""}
             style={{ width: 300 }}
@@ -85,7 +85,7 @@ const SearchAppBarComponent: FunctionComponent<SearchAppBarProps> = ({
             renderInput={(params) => (
               <TextField
                 {...params}
-                label="Search movie"
+                label="Search book"
                 variant="outlined"
                 className={classes.textfield}
               />

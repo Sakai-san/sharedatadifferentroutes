@@ -2,9 +2,9 @@ import { useSelector } from "react-redux";
 import { IReduxStore } from "../ducks/reduxStoreType";
 
 const useSuspender = () => {
-  const { status, promise, result } = useSelector((state: IReduxStore) => {
-    return state.books;
-  });
+  const { status, promise, result } = useSelector(
+    (state: IReduxStore) => state.books
+  );
 
   return {
     read() {

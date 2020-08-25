@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { IReduxStore } from "../ducks/reduxStoreType";
 
-const useSuspender = () => {
+const usePromiseWrapper = () => {
   const { status, promise, result } = useSelector(
     (state: IReduxStore) => state.books
   );
@@ -19,4 +19,4 @@ const useSuspender = () => {
   };
 };
 
-export default useSuspender;
+export default usePromiseWrapper;

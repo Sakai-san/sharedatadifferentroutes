@@ -3,9 +3,8 @@ import { useParams } from "react-router-dom";
 import Rating from "@material-ui/lab/Rating";
 import PageNotFound from "./PageNotFound";
 import { createStyles, Theme, withStyles } from "@material-ui/core/styles";
-import useSuspender from "./Hooks/useSuspender";
+import usePromiseWrapper from "./Hooks/usePromiseWrapper";
 import { IBook } from "./ducks/books/types";
-import { IReduxStore } from "./ducks/reduxStoreType";
 
 interface IDetailProps {
   classes: {
@@ -38,7 +37,7 @@ const styles = (theme: Theme) =>
 const Detail: FunctionComponent<IDetailProps> = ({ classes }) => {
   const { bookId } = useParams();
 
-  const wrapPromise = useSuspender();
+  const wrapPromise = usePromiseWrapper();
   const books = wrapPromise.read() || [];
 
   const book: IBook | undefined = books?.find?.(

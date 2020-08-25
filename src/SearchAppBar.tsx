@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
@@ -13,9 +12,8 @@ import {
 } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import useSuspender from "./Hooks/useSuspender";
+import usePromiseWrapper from "./Hooks/usePromiseWrapper";
 import { IBook } from "./ducks/books/types";
-import { IReduxStore } from "./ducks/reduxStoreType";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -60,7 +58,7 @@ interface SearchAppBarProps {
 const SearchAppBarComponent: FunctionComponent<SearchAppBarProps> = ({
   classes,
 }) => {
-  const wrapPromise = useSuspender();
+  const wrapPromise = usePromiseWrapper();
   const books = wrapPromise.read() || [];
   const history = useHistory();
 

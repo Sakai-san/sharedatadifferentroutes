@@ -8,7 +8,7 @@
     "publicationDate": "October 3, 2017",
     "asin": "B087YRB3RY",
     "title": "The Indigo Girl",
-    "subTitle": "A novel",
+    "subTitle": "A Novel",
     "overview": "The year is 1739. Eliza Lucas is sixteen years old when her father leaves her in charge of their family’s three plantations in rural South Carolina and then proceeds to bleed the estates dry in pursuit of his military ambitions. Tensions with the British, and with the Spanish in Florida, just a short way down the coast, are rising, and slaves are starting to become restless. Her mother wants nothing more than for their South Carolina endeavor to fail so they can go back to England. Soon her family is in danger of losing everything.\n\nUpon hearing how much the French pay for indigo dye, Eliza believes it’s the key to their salvation. But everyone tells her it’s impossible, and no one will share the secret to making it. Thwarted at nearly every turn, even by her own family, Eliza finds that her only allies are an aging horticulturalist, an older and married gentleman lawyer, and a slave with whom she strikes a dangerous deal: teach her the intricate thousand-year-old secret process of making indigo dye and in return—against the laws of the day—she will teach the slaves to read.",
     "poster": "https://m.media-amazon.com/images/I/41QilFp0ZIL.jpg"
   },
@@ -20,6 +20,7 @@
     "publisher": "Vertel Publishing",
     "publicationDate": "May 12, 2020",
     "title": "This is Not a Fashion Story",
+    "subTitle": "Taking Chances, Breaking Rules, and Being a Boss in the Big City",
     "isbn10": "1641120177",
     "isbn13": "978-1641120173",
     "poster": "https://images-na.ssl-images-amazon.com/images/I/51+u0MjfL4L._SX329_BO1,204,203,200_.jpg"
@@ -33,19 +34,8 @@
     "publicationDate": "September 1, 2020",
     "title": "Honeysuckle Season",
     "asin": "B07ZYPBYWL",
+    "overview": "Adrift in the wake of her father’s death, a failed marriage, and multiple miscarriages, Libby McKenzie feels truly alone. Though her new life as a wedding photographer provides a semblance of purpose, it’s also a distraction from her profound pain.\n\nWhen asked to photograph a wedding at the historic Woodmont estate, Libby meets the owner, Elaine Grant. Hoping to open Woodmont to the public, Elaine has employed young widower Colton Reese to help restore the grounds and asks Libby to photograph the process. Libby is immediately drawn to the old greenhouse shrouded in honeysuckle vines.",
     "poster": "https://m.media-amazon.com/images/I/51uUW4YbvQL.jpg"
-  },
-  {
-    "id": "14002100-95c7-4075-a093-44b7c67a2c62",
-    "ranking": 4.7,
-    "authors": ["Phil Robertson"],
-    "length": 224,
-    "publisher": "Thomas Nelson",
-    "publicationDate": "August 4, 2020",
-    "title": "Jesus Politics",
-    "isbn10": "1400210062",
-    "isbn13": "978-1400210060",
-    "poster": "https://images-na.ssl-images-amazon.com/images/I/516dEWGtn-L._SX331_BO1,204,203,200_.jpg"
   },
   {
     "id": "15946349-95c7-4075-a093-44b7c67a2c62",
@@ -55,20 +45,9 @@
     "publisher": "Riverhead Books",
     "publicationDate": "April 14, 2020",
     "title": "The Art of Gathering",
+    "subTitle": "How We Meet and Why It Matters",
     "isbn10": "1594634939",
     "isbn13": "978-1594634932",
     "poster": "https://images-na.ssl-images-amazon.com/images/I/412xU+C0LjL._SX331_BO1,204,203,200_.jpg"
-  },
-  {
-    "id": "14654617-95c7-4075-a093-44b7c67a2c62",
-    "ranking": 4.7,
-    "authors": ["DK"],
-    "length": 304,
-    "publisher": "DK Children",
-    "publicationDate": "August 1, 2017",
-    "title": "The Arts",
-    "isbn10": "1465461787",
-    "isbn13": "978-1465461780",
-    "poster": "https://images-na.ssl-images-amazon.com/images/I/61byT9kw3xL._SX389_BO1,204,203,200_.jpg"
   }
 ]

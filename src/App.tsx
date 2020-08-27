@@ -26,7 +26,7 @@ const styles = (theme: Theme) =>
 const App: FunctionComponent<IAppProps> = ({ classes }) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(booksOperations.fetchBooks);
+    dispatch(booksOperations.fetchBooks());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
